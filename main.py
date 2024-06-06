@@ -20,7 +20,7 @@ def main():
         elif opcion == "5":
             genero = input("Ingrese el género a filtrar: ")
             lista_filtrada = filtrar_por_genero(lista, genero)
-            nombre_archivo = f"{genero}.csv"
+            nombre_archivo = f"{genero}.CSV"
             guardar_archivo(lista_filtrada, nombre_archivo)
             print(f"Archivo {nombre_archivo} generado correctamente")
         elif opcion == "6":
