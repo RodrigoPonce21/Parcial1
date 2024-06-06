@@ -80,20 +80,3 @@ def ordenar_peliculas(lista):
 def informar_mejor_rating(lista):
     pelicula_mejor_rating = max(lista, key=lambda x: x["rating"])
     print(f"La película con mejor rating es {pelicula_mejor_rating['titulo']} con un rating de {pelicula_mejor_rating['rating']}")
-
-def escribir_json(lista, nombre_archivo):
-    with open(direccion_archivo(nombre_archivo), "w", encoding="utf-8") as archivo:
-        encabezado = ",".join(list(lista[0].keys())) + "\n"
-        archivo.write(encabezado)
-        for persona in lista:
-            values = list(persona.values())
-            l = []
-            for value in values: 
-                if isinstance(value, int):
-                    l.append(str(value))
-                elif isinstance(value, float):
-                    l.append(str(value))
-                else:
-                    l.append(value) 
-            linea = ",".join(l)  + "\n"
-            archivo.write(linea)

@@ -6,7 +6,8 @@ def main():
         mostrar_menu()
         opcion = input("Ingrese una opción: ")
         if opcion == "1":
-            nombre_archivo = input("Ingrese el nombre del archivo.CSV (ingrese el .CSV al final): ")
+            nombre = input("Ingrese el nombre del archivo.CSV: ")
+            nombre_archivo = f"{nombre}.CSV"
             lista = leer_archivo(nombre_archivo)
         elif opcion == "2":
             imprimir_lista(lista)
@@ -28,8 +29,10 @@ def main():
         elif opcion == "7":
             informar_mejor_rating(lista)
         elif opcion == "8":
-            nombre_archivo = input("Ingrese el nombre del archivo JSON (Ingrese el .JSON al final): ")
-            escribir_json(lista, nombre_archivo)
+            nombre = input("Ingrese el nombre del archivo JSON a generar: ")
+            nombre_archivo = f"{nombre}.JSON"
+            guardar_archivo(lista, nombre_archivo)
+            print(f"Archivo {nombre_archivo} generado correctamente")
         elif opcion == "9":
             break
         else:
