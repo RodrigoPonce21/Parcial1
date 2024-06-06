@@ -31,7 +31,8 @@ def main():
         elif opcion == "8":
             nombre = input("Ingrese el nombre del archivo JSON a generar: ")
             nombre_archivo = f"{nombre}.JSON"
-            guardar_archivo(lista, nombre_archivo)
+            lista_filtrada = filtrar_por_genero(lista, genero)
+            guardar_archivo(lista_filtrada, nombre_archivo)
             print(f"Archivo {nombre_archivo} generado correctamente")
         elif opcion == "9":
             break
