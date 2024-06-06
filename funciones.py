@@ -88,14 +88,12 @@ def escribir_json(lista, nombre_archivo):
         for persona in lista:
             values = list(persona.values())
             l = []
-            for value in values:
-                
+            for value in values: 
                 if isinstance(value, int):
                     l.append(str(value))
                 elif isinstance(value, float):
                     l.append(str(value))
                 else:
-                    l.append(value)
-                
+                    l.append(value) 
             linea = ",".join(l)  + "\n"
             archivo.write(linea)
