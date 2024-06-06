@@ -1,12 +1,12 @@
 import random
 
-def get_path_actual(nombre_archivo):
+def direccion_archivo(nombre_archivo):
     import os
     directorio_actual = os.path.dirname(__file__)
     return os.path.join(directorio_actual, nombre_archivo)
 
 def leer_archivo(nombre_archivo):
-    with open(get_path_actual(nombre_archivo), "r", encoding="utf-8") as archivo:
+    with open(direccion_archivo(nombre_archivo), "r", encoding="utf-8") as archivo:
         lista = []
         encabezado = archivo.readline().strip("\n").split(",")
         for linea in archivo.readlines():
@@ -33,7 +33,7 @@ def mostrar_menu():
     print("9. Salir")
 
 def guardar_archivo(lista, nombre_archivo):
-    with open(get_path_actual(nombre_archivo), "w", encoding="utf-8") as archivo:
+    with open(direccion_archivo(nombre_archivo), "w", encoding="utf-8") as archivo:
         encabezado = ",".join(list(lista[0].keys())) + "\n"
         archivo.write(encabezado)
         for pelicula in lista:
@@ -82,7 +82,7 @@ def informar_mejor_rating(lista):
     print(f"La película con mejor rating es {pelicula_mejor_rating['titulo']} con un rating de {pelicula_mejor_rating['rating']}")
 
 def escribir_json(lista, nombre_archivo):
-    with open(get_path_actual(nombre_archivo), "w", encoding="utf-8") as archivo:
+    with open(direccion_archivo(nombre_archivo), "w", encoding="utf-8") as archivo:
         encabezado = ",".join(list(lista[0].keys())) + "\n"
         archivo.write(encabezado)
         for persona in lista:
